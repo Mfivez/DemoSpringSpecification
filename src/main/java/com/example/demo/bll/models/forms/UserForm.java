@@ -20,6 +20,7 @@ public class UserForm {
 
     private String password;
 
+
     public User toEntity() {
         User user = new User();
         user.setUsername(this.username);

@@ -15,6 +15,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
+    //POST /users : Créer un nouvel utilisateur.
     @PostMapping("/add")
     public ResponseEntity<UserDTO> createUser(@RequestBody UserForm form) {
         return ResponseEntity.ok(userService.addOne(form));

@@ -12,7 +12,7 @@ public interface UserService {
 
     List<UserDTO> getAll();
 
-    UserDTO addOne(UserForm entity);
+    UserDTO addOne(UserForm form);
 
     UserDTO update(Long id, UserForm entity);
 
@@ -28,3 +28,8 @@ public interface UserService {
 
     List<UserDTO> findByCriteria(UserForm form);
 }
+
+// Interface BaseService {toutes les méthodes de }base service
+// Quand vous étendez ceci sur un autre service :
+// interface UserService {Toutes les méthodes de Uservices}
+// BaseService + UserService

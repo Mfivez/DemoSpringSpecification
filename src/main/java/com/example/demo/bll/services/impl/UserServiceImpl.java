@@ -34,8 +34,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO addOne(UserForm form) {
-        return UserDTO.fromEntity(repo.save(form.toEntity()));
+        return UserDTO.fromEntity(repo.save(form.toEntity()), "tout s'est bien passé");
     }
+
+
+//    @Override
+//    public UserDTO addOne(UserForm form) {
+//        User user = form.toEntity();
+//        repo.save(form.toEntity());
+//        return UserDTO.fromEntity(user);
+//    }
 
     @Override
     public UserDTO update(Long id, UserForm form) {

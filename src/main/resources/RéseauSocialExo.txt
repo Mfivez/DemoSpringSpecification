@@ -98,3 +98,13 @@ de chercher un utilisateur par son username, son email, firstname ou son lastnam
         GET /friendships/{id} : Récupérer une amitié par son ID.
         GET /friendships : Récupérer toutes les amitiés.
         DELETE /friendships/{id} : Supprimer une amitié par son ID.
+
+### Architecture 3 tiers.
+
+1. pl (api) presentation layer
+2. bll business logic layer
+3. dal data access layer.
+
+Utilisateur voit la pl -> Controleur
+Bll la logique de mon application -> Est-ce que j'ai besoin de ma bal ? Oui ou Non
+Data les données de l'appli

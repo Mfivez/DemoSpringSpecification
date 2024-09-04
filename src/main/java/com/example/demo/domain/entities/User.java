@@ -44,8 +44,10 @@ public class User extends BaseEntity<Long>{
     @OneToMany(mappedBy = "user")
     private List<Like> likes;
 
+
     @OneToMany(mappedBy = "user")
     private List<FriendShip> friendships;
+
 
     public User() {
         this.posts = new ArrayList<>();
@@ -54,3 +56,6 @@ public class User extends BaseEntity<Long>{
         this.friendships = new ArrayList<>();
     }
 }
+
+/// Visu d'une page et c'est à toi de lui dire ce qu'il va devoir ajouter pour créer un utilisateur:
+//  Formulaire : username, email, lastname, firstname, password
