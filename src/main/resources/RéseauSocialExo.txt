@@ -1,0 +1,100 @@
+##### Enoncé exo partie 1.
+
+Développer une API RESTful pour gérer un réseau social simple avec les entités
+User, Post, Comment, Like, et FriendShip dans une application.
+
+L'API doit permettre les opérations CRUD (Créer, Lire, Mettre à jour, Supprimer) pour chaque entité,
+avec des fonctionnalités supplémentaires pour le USER qui aura un endpoint offrant la possibilité
+de chercher un utilisateur par son username, son email, firstname ou son lastname
+
+##### Entités et Relations
+
+    User :
+        Attributs :
+            Long id (PK)
+            String username
+            String firstname
+            String lastname
+            String email
+            String password
+        Relations :
+            Un utilisateur peut créer plusieurs posts (Post).
+            Un utilisateur peut écrire plusieurs commentaires (Comment).
+            Un utilisateur peut aimer plusieurs posts (Like).
+            Un utilisateur peut avoir plusieurs amitiés (FriendShip).
+
+    Post :
+        Attributs :
+            Long id (PK)
+            String content
+            LocalDateTime creationDate
+            Long userId (FK)
+        Relations :
+            Un post peut recevoir plusieurs commentaires (Comment).
+            Un post peut être aimé par plusieurs utilisateurs (Like).
+
+    Comment :
+        Attributs :
+            Long id (PK)
+            String content
+            Long userId (FK)
+            Long postId (FK)
+        Relations :
+            Un commentaire appartient à un seul post (Post).
+            Un commentaire est écrit par un seul utilisateur (User).
+
+    Like :
+        Attributs :
+            Long id (PK)
+            Long userId (FK)
+            Long postId (FK)
+        Relations :
+            Un like appartient à un seul post (Post).
+            Un like est fait par un seul utilisateur (User).
+
+    FriendShip :
+        Attributs :
+            Long id (PK)
+            LocalDateTime startDate
+            Long userId (FK)
+            Long friendId (FK)
+        Relations :
+            Une amitié implique deux utilisateurs (User).
+
+
+##### Exigences de l'API
+
+    1. User (Utilisateur)
+        POST /users : Créer un nouvel utilisateur.
+        GET /users/{id} : Récupérer un utilisateur par son ID.
+        GET /users : Récupérer tous les utilisateurs.
+        PUT /users/{id} : Mettre à jour un utilisateur par son ID.
+        DELETE /users/{id} : Supprimer un utilisateur par son ID.
+        GET /users/search/username : Récupérer un utilisateur par son nom d'utilisateur (username).
+        GET /users/search/email : Récupérer un utilisateur par son e-mail (email).
+
+    2. Post (Publication)
+        POST /posts : Créer un nouveau post.
+        GET /posts/{id} : Récupérer un post par son ID.
+        GET /posts : Récupérer tous les posts.
+        PUT /posts/{id} : Mettre à jour un post par son ID.
+        DELETE /posts/{id} : Supprimer un post par son ID.
+
+    3. Comment (Commentaire)
+        POST /comments : Créer un nouveau commentaire.
+        GET /comments/{id} : Récupérer un commentaire par son ID.
+        GET /comments : Récupérer tous les commentaires.
+        PUT /comments/{id} : Mettre à jour un commentaire par son ID.
+        DELETE /comments/{id} : Supprimer un commentaire par son ID.
+
+    4. Like (J'aime)
+        POST /likes : Créer un nouveau like.
+        GET /likes/{id} : Récupérer un like par son ID.
+        GET /likes : Récupérer tous les likes.
+        DELETE /likes/{id} : Supprimer un like par son ID.
+
+    5. FriendShip (Amitié)
+        POST /friendships : Créer une nouvelle amitié.
+        GET /friendships/{id} : Récupérer une amitié par son ID.
+        GET /friendships : Récupérer toutes les amitiés.
+        DELETE /friendships/{id} : Supprimer une amitié par son ID.
